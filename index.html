@@ -555,9 +555,7 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,22,18,.07); }
   pointer-events: none;
 }
 .contact-layout {
-  max-width: 1080px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: start;
+  max-width: 680px; margin: 0 auto;
 }
 
 .contact-left .eyebrow { color: rgba(255,255,255,.28); }
@@ -597,46 +595,6 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,22,18,.07); }
 }
 .ch-val { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.78); }
 
-/* Form */
-.form-group { margin-bottom: 15px; }
-.form-group label {
-  display: block; font-size: 10px; font-weight: 700;
-  letter-spacing: 1.8px; text-transform: uppercase;
-  color: rgba(255,255,255,.3); margin-bottom: 7px;
-}
-.field {
-  width: 100%;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.1);
-  color: #fff; padding: 13px 15px;
-  border-radius: 10px;
-  font-family: 'Jost', sans-serif; font-size: 14px;
-  outline: none; appearance: none;
-  transition: border-color .2s, background .2s;
-}
-.field::placeholder { color: rgba(255,255,255,.18); }
-.field:focus {
-  border-color: rgba(184,135,58,.5);
-  background: rgba(255,255,255,.07);
-}
-.field option { background: #1a1612; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
-textarea.field { resize: vertical; min-height: 100px; }
-.email-feedback { font-size: 12px; min-height: 16px; margin-top: 5px; }
-.btn-send {
-  width: 100%; background: var(--gold);
-  color: var(--ink); border: none;
-  padding: 15px; border-radius: 10px;
-  font-family: 'Jost', sans-serif;
-  font-size: 14px; font-weight: 600;
-  letter-spacing: .5px; cursor: pointer;
-  transition: all .22s; margin-top: 6px;
-}
-.btn-send:hover {
-  background: #c9973f;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 32px rgba(184,135,58,.3);
-}
 
 /* ═══════════════════════════════
    FOOTER
@@ -1094,31 +1052,6 @@ footer p { font-size: 12px; color: rgba(255,255,255,.22); }
       </div>
     </div>
 
-    <div class="reveal delay-2">
-      <div class="form-group">
-        <label>Your Name</label>
-        <input class="field" type="text" placeholder="Full name">
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input class="field" type="email" id="emailField" placeholder="your@email.com" oninput="checkEmail(this)">
-        <div id="emailFeedback" class="email-feedback"></div>
-      </div>
-      <div class="form-group">
-        <label>Nature of Enquiry</label>
-        <select class="field">
-          <option value="">Select one</option>
-          <option>Professional / Institutional</option>
-          <option>Collaboration or Workshop</option>
-          <option>General Enquiry</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea class="field" rows="4" placeholder="Please share a little about your enquiry..."></textarea>
-      </div>
-      <button class="btn-send" id="sendBtn">Send Message →</button>
-    </div>
 
   </div>
 </section>
@@ -1172,22 +1105,6 @@ window.addEventListener('DOMContentLoaded', () => {
   [50, 200, 500, 1000].forEach(ms => setTimeout(runReveal, ms));
 });
 
-// ── Email validation ──
-function checkEmail(input) {
-  const fb  = document.getElementById('emailFeedback');
-  const btn = document.getElementById('sendBtn');
-  const v   = input.value;
-  const ok  = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  if (!v) {
-    fb.innerHTML = ''; btn.style.opacity = '1';
-  } else if (ok) {
-    fb.innerHTML = '<span style="color:#9ecfb5;font-size:12px;font-weight:600;">✓ Looks good</span>';
-    btn.style.opacity = '1';
-  } else {
-    fb.innerHTML = '<span style="color:#e8a0a0;font-size:12px;font-weight:600;">✗ Please enter a valid email</span>';
-    btn.style.opacity = '.5';
-  }
-}
 </script>
 </body>
 </html>
