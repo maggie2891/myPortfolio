@@ -171,38 +171,26 @@ nav.scrolled { box-shadow: 0 2px 20px rgba(26,22,18,.07); }
   pointer-events: none;
 }
 .headshot-wrap { width: 100%; max-width: 340px; position: relative; z-index: 1; }
+
+/* ── Elevated outline photo frame ── */
 .headshot-frame {
+  margin-bottom: 26px;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow:
+    0 0 0 1px rgba(184,135,58,.6),      /* gold outline trace  */
+    0 0 0 10px var(--bg2),              /* cream breathing gap */
+    0 0 0 11px rgba(184,135,58,.12),    /* faint outer echo    */
+    0 32px 80px rgba(26,22,18,.2),      /* main lift shadow    */
+    0 10px 28px rgba(26,22,18,.12);     /* close ambient       */
+}
+
+.headshot-img {
+  display: block;
   width: 100%;
   aspect-ratio: 3 / 4;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 30px 70px rgba(26,22,18,.16), 0 0 0 1px var(--border);
-  background: var(--bg3);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 26px;
-  position: relative;
-}
-.headshot-frame::before {
-  content: '';
-  position: absolute; inset: 0;
-  border: 2px dashed rgba(184,135,58,.25);
-  border-radius: 20px;
-  pointer-events: none;
-  z-index: 2;
-}
-.headshot-placeholder {
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 8px; text-align: center; padding: 24px;
-}
-.headshot-placeholder .ph-icon { font-size: 56px; }
-.headshot-placeholder .ph-label {
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: var(--muted);
-}
-.headshot-placeholder .ph-sub {
-  font-size: 11px; color: var(--border);
+  object-fit: cover;
+  object-position: center top;
 }
 .hero-quote {
   font-family: 'Cormorant Garamond', serif;
@@ -719,11 +707,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,.22); }
   <div class="hero-right">
     <div class="headshot-wrap">
       <div class="headshot-frame">
-        <div class="headshot-placeholder">
-          <div class="ph-icon">👩‍🏫</div>
-          <div class="ph-label">Headshot Photo</div>
-          <div class="ph-sub">Replace with actual image</div>
-        </div>
+        <img src="ProfilePicture.jpeg" alt="Margrat Joseph" class="headshot-img">
       </div>
       <p class="hero-quote">Committed to driving academic excellence and innovation in educational environments.</p>
     </div>
